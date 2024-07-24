@@ -28,7 +28,7 @@ export default function ProductScreen() {
                             <Rating value={product.rating} text={`${product.numReviews} reviews`} />
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            <p>{product.price}</p>
+                            <p>${product.price}</p>
                         </ListGroup.Item>
                         <ListGroup.Item>
                             <p>{product.description}</p>

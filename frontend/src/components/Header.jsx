@@ -2,7 +2,6 @@ import React from 'react'
 import { Navbar, Nav, Container } from "react-bootstrap"
 import { FaShoppingCart, FaUser } from "react-icons/fa"
 import { LinkContainer } from "react-router-bootstrap"
-import logo from "../assets/logo.png"
 
 export default function Header() {
     return (
@@ -11,7 +10,6 @@ export default function Header() {
                 <Container>
                     <LinkContainer to="/">
                         <Navbar.Brand>
-                            {/* <img src={logo} alt="" /> */}
                             VintageCulture
                         </Navbar.Brand>
                     </LinkContainer>
