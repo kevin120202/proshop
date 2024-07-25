@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom'
 import products from '../products'
 import Rating from '../components/Rating'
 import { useGetProductDetailsQuery } from '../slices/productsApiSlice'
+import Loader from '../components/Loader'
+import Message from '../components/Message'
 
 export default function ProductScreen() {
     const { id: productId } = useParams()
@@ -21,8 +23,8 @@ export default function ProductScreen() {
             <Link to=".." className='btn btn-light my-3'>
                 Back
             </Link>
-            {isLoading ? (<h2>Loading....</h2>) :
-                isError ? (<div>Oops, there is an error</div>) : (<Row>
+            {isLoading ? <Loader /> :
+                isError ? (<Message>Oops, there is an error</Message>) : (<Row>
                     <Col md={5}>
                         <Image src={product.image} alt={product.image} fluid />
                     </Col>
