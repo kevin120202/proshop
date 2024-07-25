@@ -1,10 +1,11 @@
 import express from "express"
 import dotenv from 'dotenv';
-import cors from 'cors';
 dotenv.config()
+import cors from 'cors';
+
+// Files
 import products from "./data/products.js"
 import connectDB from "./config/db.js";
-const port = process.env.PORT || 8000
 
 const app = express()
 
@@ -24,5 +25,6 @@ app.get("/api/products/:id", (req, res) => {
     res.json(product)
 })
 
+const port = process.env.PORT || 8000
 connectDB()
 app.listen(port, () => console.log(`Server running on port ${port}`))
