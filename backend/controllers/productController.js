@@ -1,5 +1,6 @@
 import asyncHandler from "../middleware/asyncHandler.js"
 import Product from "../models/ProductModel.js"
+import ErrorResponse from "../utils/errorResponse.js"
 
 // @desc    Get all products
 // @route   GET /api/products
@@ -16,6 +17,9 @@ export const getProducts = asyncHandler(async (req, res, next) => {
 // @route   GET /api/products/:id
 // @access  Public
 export const getProduct = asyncHandler(async (req, res, next) => {
-    const products = await Product.findById(req.params.id)
-    res.status(200).json({ success: true, data: products })
+    const product = await Product.findById(req.params.id)
+    if (!product) {
+        return next(new ErrorResponse(`Product not found with id of ${req.params.id}`, 404))
+    }
+    res.status(200).json({ success: true, data: product })
 })

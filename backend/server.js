@@ -8,12 +8,16 @@ app.use(cors());
 
 // Route files
 import productRouter from "./routes/productRoutes.js"
+import errorHandler from "./middleware/error.js";
 
 // Body parser
 app.use(express.json())
 
 // Mount routers
 app.use("/api/products", productRouter)
+
+// Error handler
+app.use(errorHandler)
 
 const port = process.env.PORT || 8000
 connectDB()
