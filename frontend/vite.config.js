@@ -14,3 +14,14 @@ export default defineConfig({
         },
     },
 });
+
+// export default defineConfig({
+//     plugins: [react()],
+//     server: {
+//         // proxy requests prefixed '/api' and '/uploads'
+//         proxy: {
+//             '/api': 'http://localhost:8000/api',
+//             '/uploads': 'http://localhost:8000',
+//         },
+//     },
+// });
