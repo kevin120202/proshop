@@ -2,28 +2,18 @@ import express from "express"
 import dotenv from 'dotenv';
 dotenv.config()
 import cors from 'cors';
-
-// Files
-import products from "./data/products.js"
 import connectDB from "./config/db.js";
-
 const app = express()
-
 app.use(cors());
 
-// Routes
-app.get("/", (req, res) => {
-    res.send("API is running...")
-})
+// Route files
+import productRouter from "./routes/productRoutes.js"
 
-app.get("/api/products", (req, res) => {
-    res.json(products)
-})
+// Body parser
+app.use(express.json())
 
-app.get("/api/products/:id", (req, res) => {
-    const product = products.find(p => p._id === req.params.id)
-    res.json(product)
-})
+// Mount routers
+app.use("/api/products", productRouter)
 
 const port = process.env.PORT || 8000
 connectDB()

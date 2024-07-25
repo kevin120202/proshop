@@ -10,7 +10,7 @@ export default function HomeScreen() {
         const getProducts = async () => {
             const res = await fetch("/api/products")
             const data = await res.json()
-            setProducts(data)
+            setProducts(data.data)
         }
         getProducts()
     }, [])
