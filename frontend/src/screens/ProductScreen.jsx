@@ -8,7 +8,6 @@ import Rating from '../components/Rating'
 export default function ProductScreen() {
     const { id: productId } = useParams()
     const product = products.find(item => item._id === productId)
-    console.log(product);
 
     return (
         <>
@@ -17,7 +16,7 @@ export default function ProductScreen() {
             </Link>
             <Row>
                 <Col md={5}>
-                    <img src={product.image} alt={product.image} fluid />
+                    <Image src={product.image} alt={product.image} fluid />
                 </Col>
                 <Col md={4}>
                     <ListGroup variant='flush'>
